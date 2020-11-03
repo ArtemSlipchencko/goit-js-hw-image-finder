@@ -8,12 +8,12 @@ const loadMore = function() {
 
     const screenY = document.documentElement.scrollHeight;
     searchImage();
-    
+    console.log(screenY);
     window.scrollTo({
         top: screenY,
-        behavior: 'smooth',
+        behavior: 'smooth'
     });
-    console.log(screenY);
+    
 
 };
 
@@ -29,6 +29,8 @@ export const searchImage = function() {
         .then(data => data.json())
         .then(data => renderImage(data));
 
+        
+
     } else {
 
         list.innerHTML = '';
@@ -37,7 +39,7 @@ export const searchImage = function() {
         .then(data => data.json())
         .then(data => renderImage(data));
         
-        
+        const screenY = document.documentElement.scrollHeight;
         
         if (renderTimes === 1) {
 
@@ -46,6 +48,7 @@ export const searchImage = function() {
             renderTimes += 1;
 
         }
+        
         
         keyWord = word;
 
